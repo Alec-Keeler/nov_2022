@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
-// Your code here
+//!!START
+
+// a possible solution using dotenv
 require('dotenv').config();
+//!!END
 
 app.get('/', (req, res) => {
     res.send(process.env.SECRET_MESSAGE);
