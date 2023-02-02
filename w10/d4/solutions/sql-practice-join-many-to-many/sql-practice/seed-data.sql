@@ -62,9 +62,3 @@ VALUES (1, 1),
   (9, 5),
   (10, 5);
   
-
-SELECT musicians.id, musicians.first_name, instruments.type
-FROM musicians
-JOIN musician_instruments ON (musicians.id = musician_instruments.musician_id)
-JOIN instruments ON (musician_instruments.instrument_id = instruments.id)
-WHERE instruments.type = 'piano';
