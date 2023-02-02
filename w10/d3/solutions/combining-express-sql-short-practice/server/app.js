@@ -5,12 +5,14 @@ const app = express();
 // Database file - DO NOT MODIFY
 // DO NOT DO THIS - USE .env VARIABLE INSTEAD
 const DATA_SOURCE = 'app.db';
-const sqlite3 = require('sqlite3');
-const db = new sqlite3.Database(DATA_SOURCE, sqlite3.OPEN_READWRITE);
+
 /**
  * Step 1 - Connect to the database
  */
-// Your code here
+//!!START
+const sqlite3 = require('sqlite3');
+const db = new sqlite3.Database(DATA_SOURCE, sqlite3.OPEN_READWRITE);
+//!!END
 
 // Express using json - DO NOT MODIFY
 app.use(express.json());
@@ -30,18 +32,26 @@ app.get('/colors/:id', (req, res, next) => {
     /**
      * STEP 2A - SQL Statement
      */
-    // Your code here
+    //!!START
+    const sql = 'SELECT * FROM colors WHERE id = ?';
+    //!!END
 
     /**
      * STEP 2B - SQL Parameters
      */
-    // Your code here
+    //!!START
+    const params = [req.params.id];
+    //!!END
 
     /**
      * STEP 2C - Call database function
      *  - return response
      */
-    // Your code here
+    //!!START
+    db.get(sql, params, (err, row) => {
+        res.json(row);
+    });
+    //!!END
 });
 
 // Add color
@@ -60,7 +70,17 @@ app.get('/colors/add/:name', (req, res, next) => {
      *  - if no error, query for new row
      *  - return new row
      */
-    // Your code here
+    //!!START
+    db.run(sql, params, err => {
+        if (err) {
+            next(err);
+        } else {
+            db.get(sqlLast, [], (err, row) => {
+                res.json(row);
+            });
+        }
+    })
+    //!!END
 })
 
 // Root route - DO NOT MODIFY
