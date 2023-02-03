@@ -17,6 +17,23 @@ CREATE TABLE toys (
   FOREIGN KEY (cat_id) REFERENCES cats(id) ON DELETE CASCADE
 );
 
+-- Create/recreate BONUS tables
+DROP TABLE IF EXISTS toys_backup;
+DROP TABLE IF EXISTS cats_backup;
+
+CREATE TABLE cats_backup (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
+  birth_year INTEGER
+);
+
+CREATE TABLE toys_backup (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
+  cat_id INTEGER,
+  FOREIGN KEY (cat_id) REFERENCES cats_backup(id) ON DELETE CASCADE
+);
+
 -- Seed Data
 INSERT INTO cats
   (name, birth_year)
@@ -43,11 +60,3 @@ VALUES
   (5, 'Crinkle Ball'),
   (7, 'Cheetos'),
   (8, 'Yarn');
-
-  -- SELECT COUNT(*), cat_id, cats.name FROM toys
-  -- JOIN cats ON (toys.cat_id = cats.id)
-  -- GROUP BY cats.name;
-
-  SELECT COUNT(*) AS toy_count, cat_id FROM toys
-  GROUP BY cat_id
-  HAVING toy_count >= 2;

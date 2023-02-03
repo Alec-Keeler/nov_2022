@@ -43,11 +43,3 @@ VALUES
   (5, 'Crinkle Ball'),
   (7, 'Cheetos'),
   (8, 'Yarn');
-
-  -- SELECT COUNT(*), cat_id, cats.name FROM toys
-  -- JOIN cats ON (toys.cat_id = cats.id)
-  -- GROUP BY cats.name;
-
-  SELECT COUNT(*) AS toy_count, cat_id FROM toys
-  GROUP BY cat_id
-  HAVING toy_count >= 2;
