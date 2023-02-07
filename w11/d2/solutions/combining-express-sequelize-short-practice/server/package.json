@@ -1,0 +1,26 @@
+{
+  "name": "combining-express-sequelize-short-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "!!START SILENT ": "",
+    "dotenv": "^16.0.1",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0",
+    "sqlite3": "^5.0.2",
+    "!!END ": "",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^5.1.0",
+    "nodemon": "^2.0.12"
+  }
+}
