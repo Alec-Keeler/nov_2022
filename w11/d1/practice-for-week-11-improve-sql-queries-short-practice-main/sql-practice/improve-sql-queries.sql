@@ -7,8 +7,14 @@
 
 -- Paste your results below (as a comment):
 
+EXPLAIN QUERY PLAN
+SELECT * FROM cats
+JOIN cat_toys ON cats.id = cat_toys.cat_id
+WHERE cat_toys.toy_id = 5;
 
+-- about .0002 ish
 
+CREATE INDEX idx_cat_toys_toy_id ON cat_toys (toy_id);
 
 ----------
 -- Step 1 - Analyze the Query
