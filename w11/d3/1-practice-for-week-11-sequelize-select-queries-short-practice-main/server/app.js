@@ -34,6 +34,12 @@ app.get('/puppies/chipped', async (req, res, next) => {
     let chippedPuppies;
 
     // Your code here
+    chippedPuppies = await Puppy.findAll({
+        where: {
+            microchipped: true
+        },
+        order: [['age_yrs', 'DESC'], ['name']]
+    })
 
     res.json(chippedPuppies);
 });
@@ -46,6 +52,11 @@ app.get('/puppies/name/:name', async (req, res, next) => {
     let puppyByName;
     
     // Your code here
+    puppyByName = await Puppy.findOne({
+        where: {
+            name: req.params.name
+        }
+    })
 
     res.json(puppyByName);
 })

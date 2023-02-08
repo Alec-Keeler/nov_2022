@@ -21,6 +21,28 @@ app.get('/puppies', async (req, res, next) => {
 // STEP 1: Update a puppy by id
 app.put('/puppies/:puppyId', async (req, res, next) => {
     // Your code here
+    // check if puppy exists
+    let pup = await Puppy.findByPk(req.params.puppyId)
+    if (!pup) {
+        res.send('there is no puppy here D:')
+    }
+    const {age_yrs, weight_lbs, microchipped} = req.body
+    // only update values if those values exist in req.body
+    if (age_yrs) {
+        pup.age_yrs = age_yrs
+    }
+    if (weight_lbs) {
+        pup.weight_lbs = weight_lbs
+    }
+    if (microchipped !== undefined) {
+        pup.microchipped = microchipped
+    }
+    await pup.save()
+
+    res.json({
+        message: "Successfully updated the puppy",
+        pup
+    })
 })
 
 

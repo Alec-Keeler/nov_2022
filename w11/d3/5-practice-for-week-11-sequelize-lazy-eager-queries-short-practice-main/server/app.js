@@ -29,7 +29,7 @@ app.get('/bands-lazy/:id', async (req, res, next) => {
 app.get('/bands-eager/:id', async (req, res, next) => {
     const payload = await Band.findByPk(req.params.id, {
         include: { model: Musician },
-        order: [ [Musician, 'firstName'] ]
+        order: [ [Musician, 'firstName'] ] // Musicians.firstName
     });
     res.json(payload);
 });
@@ -41,12 +41,14 @@ app.get('/bands-lazy', async (req, res, next) => {
     for(let i = 0; i < allBands.length; i++){
         const band = allBands[i];
         // Your code here
+        const musician = await band.getMusicians({ order: [['firstName']] })
         const bandData = {
             id: band.id,
             name: band.name,
             createdAt: band.createdAt,
             updatedAt: band.updatedAt,
             // Your code here
+            Musicians: musician
         };
         payload.push(bandData);
     }
@@ -57,6 +59,8 @@ app.get('/bands-lazy', async (req, res, next) => {
 app.get('/bands-eager', async (req, res, next) => {
     const payload = await Band.findAll({
         // Your code here
+        include: { model: Musician },
+        order: [['name'], [Musician, 'firstName']]
     });
     res.json(payload);
 });
