@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      CatToy.belongsTo(
+      CatToy.belongsTo( // JOIN Cats ON (CatToys.catId = Cats.id)
         models.Cat, 
         { foreignKey: 'catId' }
       );
 
-      CatToy.belongsTo(
+      CatToy.belongsTo( // JOIN Toys ON (CatToys.toyId = Toys.id)
         models.Toy, 
         { foreignKey: 'toyId' }
       );
