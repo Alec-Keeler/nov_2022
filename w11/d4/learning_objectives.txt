@@ -1,0 +1,2 @@
+Create a query to collect and store aggregate data
+Order the results of a Sequelize query
