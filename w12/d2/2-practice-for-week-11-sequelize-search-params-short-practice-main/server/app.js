@@ -65,7 +65,7 @@ app.get('/musicians', async (req, res, next) => {
     /* { 
         include: [{ 
             model: Instrument, 
-            where: { type: req.query.instrumentTypes }, 
+            where: { type: req.query.instrumentTypes }, WHERE tpye = 'piano'// WHERE type IN ['piano', 'cello']
             through: { attributes: [] } // Omits the join table attributes
         }] } 
     */
