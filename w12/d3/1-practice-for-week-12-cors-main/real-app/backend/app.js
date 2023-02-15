@@ -30,7 +30,7 @@ app.use(cookieParser());
 
 // 2. Less-Ambiguous CORS policy - allow malicious app (okay, but still not good)
 // app.use(cors({
-//   origin: /http:\/\/localhost/, // allow any origin beginning with 'http://localhost'
+  // origin: /http:\/\/localhost/, // allow any origin beginning with 'http://localhost'
 //   credentials: true // allow sending and receiving cookies
 // }));
 
@@ -42,10 +42,10 @@ app.use(cookieParser());
 
 // 4. Multiple origins CORS policy - allow malicious app (good if you want
   // to allow malicious app)
-// app.use(cors({
-//   origin: ['http://localhost:5001', 'http://localhost:5002'],
-//   credentials: true // allow sending and receiving cookies
-// }));
+app.use(cors({
+  origin: ['http://localhost:5001', 'http://localhost:5002'],
+  credentials: true // allow sending and receiving cookies
+}));
 
 /* ------------------------ Frontend Files -------------------------- */
 
