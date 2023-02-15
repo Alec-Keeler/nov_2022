@@ -1,0 +1,5 @@
+Explain the benchmarking process
+Explain the formula used to calculate the offset property when building pagination
+Give 1 or more reasons implementing pagination might be good or necessary for an application
+Explain how to use query parameters to send an array of values
+Explain the basic process for handling an optional search filter
