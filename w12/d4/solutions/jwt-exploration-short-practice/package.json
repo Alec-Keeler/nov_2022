@@ -1,0 +1,18 @@
+{
+  "name": "jwt-exploration",
+  "version": "1.0.0",
+  "description": "Encode, decode and verify a JWT",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "!!START SILENT ": "",
+    "jsonwebtoken": "^8.5.1",
+    "!!END ": "",
+    "dotenv": "^16.0.0"
+  }
+}

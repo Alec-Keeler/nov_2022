@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Instrument extends Model {
+  class Store extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,29 +11,23 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Instrument.belongsTo(models.Store)
+      Store.hasMany(models.Instrument, { foreignKey: 'storeId' });
     }
   }
-  Instrument.init({
+  Store.init({
     name: DataTypes.STRING,
-    type: DataTypes.STRING,
-    storeId: DataTypes.INTEGER
+    location: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'Instrument',
-    defaultScope: {},
-    scopes: {
-      keyboards: {
-        where: {
-          type: 'keyboard'
-        }
-      },
-      string: {
-        where: {
-          type: 'string'
-        }
+    modelName: 'Store',
+    //!!START SILENT
+    // This is a default scope
+    defaultScope: {
+      attributes: {
+        exclude: ["createdAt", "updatedAt"]
       }
-    }
+    },
+   //!!END
   });
-  return Instrument;
+  return Store;
 };
