@@ -1,0 +1,4 @@
+Who enforces a CORS policy?
+Give and explain an example of a bad CORS policy.
+How many cookies does CSRF protection use and what is the difference between the two?
+What is an example of an XSS attack?
